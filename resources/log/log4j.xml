@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!--  Appenders -->
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%5p %d{ISO8601} [%t][%x] %c - %m%n" />
+        </layout>
+    </appender>
+    
+    
+     <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+      <param name="Threshold" value="finest" />
+      <param name="File" value="/home/sagar/logs/catalina.out"/>
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
+      </layout>
+   </appender>
+   
+ 
+    <!--  The Root Logger -->
+    <root>
+        <level value="debug"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="fileAppender"/>
+    </root>
+
+</log4j:configuration>
